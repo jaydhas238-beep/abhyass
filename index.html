@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhyaas Coaching Classes | Nashik</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    html{scroll-behavior:smooth;}
+
+    body{
+      background:#f8fafc;
+      color:#0f172a;
+    }
+
+    header{
+      min-height:100vh;
+      background:
+      linear-gradient(135deg,rgba(8,31,92,0.94),rgba(10,42,136,0.92)),
+      url("https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1600&q=80");
+      background-size:cover;
+      background-position:center;
+      color:white;
+      padding:25px 8%;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 28px;
+      border-radius:22px;
+      background:rgba(255,255,255,0.10);
+      backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,0.20);
+    }
+
+    .logo{
+      font-size:27px;
+      font-weight:900;
+    }
+
+    .logo span{
+      color:#FFD700;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:24px;
+      font-weight:700;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#FFD700;
+    }
+
+    .hero{
+      max-width:800px;
+      margin-top:130px;
+      animation:fadeUp 1s ease;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:11px 22px;
+      border-radius:50px;
+      background:rgba(255,215,0,0.15);
+      border:1px solid rgba(255,215,0,0.5);
+      color:#FFD700;
+      font-weight:800;
+      margin-bottom:25px;
+    }
+
+    .hero h1{
+      font-size:64px;
+      line-height:1.08;
+      margin-bottom:22px;
+    }
+
+    .hero p{
+      font-size:19px;
+      line-height:1.8;
+      color:#e2e8f0;
+      margin-bottom:35px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:15px 30px;
+      border-radius:50px;
+      text-decoration:none;
+      font-weight:900;
+      margin-right:12px;
+      transition:0.35s;
+    }
+
+    .btn-gold{
+      background:linear-gradient(135deg,#FFD700,#FBBF24);
+      color:#081F5C;
+      box-shadow:0 16px 35px rgba(255,215,0,0.38);
+    }
+
+    .btn-gold:hover{
+      transform:translateY(-6px) scale(1.04);
+      box-shadow:0 25px 50px rgba(255,215,0,0.55);
+    }
+
+    .btn-outline{
+      color:white;
+      border:1px solid white;
+    }
+
+    .btn-outline:hover{
+      background:white;
+      color:#081F5C;
+      transform:translateY(-6px);
+    }
+
+    section{
+      padding:90px 8%;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+      margin-top:-70px;
+      position:relative;
+      z-index:5;
+    }
+
+    .stat{
+      background:white;
+      padding:36px;
+      border-radius:28px;
+      text-align:center;
+      box-shadow:0 22px 50px rgba(8,31,92,0.14);
+      transition:0.35s;
+      border:1px solid #e5e7eb;
+    }
+
+    .stat:hover{
+      transform:translateY(-10px);
+      box-shadow:0 25px 55px rgba(255,215,0,0.25);
+    }
+
+    .stat h2{
+      font-size:42px;
+      color:#081F5C;
+      margin-bottom:8px;
+    }
+
+    .stat p{
+      color:#64748b;
+      font-weight:800;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:55px;
+    }
+
+    .title h2{
+      font-size:44px;
+      color:#081F5C;
+      margin-bottom:12px;
+    }
+
+    .title h2::after{
+      content:"";
+      display:block;
+      width:85px;
+      height:4px;
+      background:#FFD700;
+      margin:16px auto 0;
+      border-radius:20px;
+    }
+
+    .title p{
+      color:#64748b;
+      font-size:17px;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:45px;
+      align-items:center;
+    }
+
+    .about-img{
+      border-radius:34px;
+      overflow:hidden;
+      box-shadow:0 25px 55px rgba(8,31,92,0.22);
+    }
+
+    .about-img img{
+      width:100%;
+      display:block;
+    }
+
+    .about-text h2{
+      font-size:42px;
+      color:#081F5C;
+      margin-bottom:20px;
+    }
+
+    .about-text p{
+      color:#475569;
+      line-height:1.85;
+      margin-bottom:18px;
+    }
+
+    .premium-section{
+      background:linear-gradient(135deg,#081F5C,#0A2A88);
+      color:white;
+      margin:40px 8%;
+      border-radius:42px;
+      padding:80px 6%;
+      box-shadow:0 30px 70px rgba(8,31,92,0.25);
+    }
+
+    .premium-section .title h2{
+      color:white;
+    }
+
+    .premium-section .title p{
+      color:#dbeafe;
+    }
+
+    .course-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:26px;
+    }
+
+    .course-card{
+      padding:34px;
+      border-radius:30px;
+      background:rgba(255,255,255,0.09);
+      backdrop-filter:blur(16px);
+      border:1px solid rgba(255,255,255,0.18);
+      transition:0.35s;
+    }
+
+    .course-card:hover{
+      transform:translateY(-12px);
+      border-color:#FFD700;
+      box-shadow:0 25px 50px rgba(255,215,0,0.20);
+    }
+
+    .course-card h3{
+      color:#FFD700;
+      font-size:25px;
+      margin-bottom:14px;
+    }
+
+    .course-card p{
+      color:#e2e8f0;
+      line-height:1.75;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:26px;
+    }
+
+    .feature{
+      background:white;
+      padding:34px;
+      border-radius:30px;
+      box-shadow:0 18px 42px rgba(8,31,92,0.10);
+      border:1px solid #e5e7eb;
+      transition:0.35s;
+    }
+
+    .feature:hover{
+      transform:translateY(-10px);
+      border-color:#FFD700;
+      box-shadow:0 25px 55px rgba(255,215,0,0.20);
+    }
+
+    .icon{
+      width:64px;
+      height:64px;
+      background:linear-gradient(135deg,#081F5C,#0A2A88);
+      color:#FFD700;
+      border-radius:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:30px;
+      margin-bottom:18px;
+    }
+
+    .feature h3{
+      font-size:23px;
+      color:#081F5C;
+      margin-bottom:12px;
+    }
+
+    .feature p{
+      color:#64748b;
+      line-height:1.7;
+    }
+
+    .reviews{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:26px;
+    }
+
+    .review{
+      background:white;
+      padding:34px;
+      border-radius:30px;
+      box-shadow:0 18px 42px rgba(8,31,92,0.10);
+      border-top:5px solid #FFD700;
+      transition:0.35s;
+    }
+
+    .review:hover{
+      transform:translateY(-10px);
+    }
+
+    .stars{
+      color:#FFD700;
+      font-size:23px;
+      margin-bottom:16px;
+    }
+
+    .review p{
+      color:#475569;
+      line-height:1.8;
+      margin-bottom:18px;
+    }
+
+    .review h4{
+      color:#081F5C;
+    }
+
+    .cta{
+      margin:60px 8%;
+      padding:75px 30px;
+      border-radius:42px;
+      text-align:center;
+      background:linear-gradient(135deg,#FFD700,#FBBF24);
+      color:#081F5C;
+      box-shadow:0 25px 60px rgba(255,215,0,0.30);
+    }
+
+    .cta h2{
+      font-size:44px;
+      margin-bottom:15px;
+    }
+
+    .cta p{
+      font-size:18px;
+      margin-bottom:30px;
+      font-weight:600;
+    }
+
+    .cta a{
+      background:#081F5C;
+      color:white;
+    }
+
+    .contact{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:35px;
+    }
+
+    .contact-box{
+      background:white;
+      padding:36px;
+      border-radius:32px;
+      box-shadow:0 18px 42px rgba(8,31,92,0.10);
+      border:1px solid #e5e7eb;
+    }
+
+    .contact-box h3{
+      font-size:28px;
+      color:#081F5C;
+      margin-bottom:20px;
+    }
+
+    .contact-box p{
+      color:#475569;
+      line-height:1.7;
+      margin-bottom:14px;
+    }
+
+    iframe{
+      width:100%;
+      height:330px;
+      border:none;
+      border-radius:26px;
+    }
+
+    footer{
+      background:#081F5C;
+      color:#dbeafe;
+      text-align:center;
+      padding:32px;
+    }
+
+    .whatsapp{
+      position:fixed;
+      right:24px;
+      bottom:24px;
+      width:65px;
+      height:65px;
+      border-radius:50%;
+      background:#25D366;
+      color:white;
+      font-size:32px;
+      text-decoration:none;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 15px 35px rgba(37,211,102,0.45);
+      animation:pulse 1.6s infinite;
+      z-index:100;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(45px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes pulse{
+      0%{transform:scale(1);}
+      50%{transform:scale(1.08);}
+      100%{transform:scale(1);}
+    }
+
+    @media(max-width:850px){
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav a{
+        margin:7px;
+      }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .about,
+      .contact{
+        grid-template-columns:1fr;
+      }
+
+      section{
+        padding:70px 6%;
+      }
+
+      .premium-section,
+      .cta{
+        margin:40px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Abhyaas <span>Coaching</span></div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#courses">Courses</a>
+      <a href="#features">Why Us</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="badge">⭐ 5.0 Rated Coaching Center in Nashik</div>
+    <h1>Learn Better. Score Higher. Grow Confident.</h1>
+    <p>
+      Abhyaas Coaching Classes provides disciplined, motivating and student-friendly learning
+      with personal attention, digital board teaching, regular tests and doubt-solving sessions.
+    </p>
+    <a href="tel:08007001178" class="btn btn-gold">Call Now</a>
+    <a href="#contact" class="btn btn-outline">Book Free Enquiry</a>
+  </div>
+</header>
+
+<section class="stats">
+  <div class="stat">
+    <h2>5.0★</h2>
+    <p>Google Rating</p>
+  </div>
+
+  <div class="stat">
+    <h2>26+</h2>
+    <p>Happy Reviews</p>
+  </div>
+
+  <div class="stat">
+    <h2>100%</h2>
+    <p>Personal Attention</p>
+  </div>
+
+  <div class="stat">
+    <h2>9 PM</h2>
+    <p>Open Till</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=1200&q=80" alt="Abhyaas Coaching Classes">
+    </div>
+
+    <div class="about-text">
+      <h2>About Abhyaas Coaching Classes</h2>
+      <p>
+        Abhyaas Coaching Classes is a trusted education center located at Tapovan Road,
+        Dwarka, Nashik. The institute focuses on quality teaching, confidence building,
+        discipline and consistent academic improvement.
+      </p>
+      <p>
+        With digital board learning, regular practice, doubt-solving sessions and progress
+        tracking, students get a modern and supportive learning environment.
+      </p>
+      <a href="https://wa.me/918007001178?text=Hello%20Abhyaas%20Coaching%20Classes,%20I%20want%20to%20enquire%20about%20admission."
+         class="btn btn-gold">Enquire on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="premium-section" id="courses">
+  <div class="title">
+    <h2>Courses We Offer</h2>
+    <p>Structured batches for school and higher secondary students</p>
+  </div>
+
+  <div class="course-grid">
+    <div class="course-card">
+      <h3>8th Standard</h3>
+      <p>Foundation coaching with concept clarity, regular practice and personal guidance.</p>
+    </div>
+
+    <div class="course-card">
+      <h3>9th Standard</h3>
+      <p>Strong academic preparation with chapter-wise learning and regular tests.</p>
+    </div>
+
+    <div class="course-card">
+      <h3>10th Board Batch</h3>
+      <p>Complete board exam preparation with revision, test series and doubt solving.</p>
+    </div>
+
+    <div class="course-card">
+      <h3>11th Science</h3>
+      <p>Strong foundation in Physics, Chemistry, Mathematics and Biology with expert guidance.</p>
+    </div>
+
+    <div class="course-card">
+      <h3>12th Science</h3>
+      <p>Focused HSC board preparation with test series, revision and exam strategies.</p>
+    </div>
+
+    <div class="course-card">
+      <h3>CET Preparation</h3>
+      <p>Concept-based MHT-CET preparation with mock tests and chapter-wise practice.</p>
+    </div>
+
+    <div class="course-card">
+      <h3>JEE Foundation</h3>
+      <p>Early preparation for JEE with advanced problem solving and conceptual learning.</p>
+    </div>
+
+    <div class="course-card">
+      <h3>Special Revision Batch</h3>
+      <p>Quick revision, important questions and exam-focused preparation for better scores.</p>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="title">
+    <h2>Why Choose Abhyaas?</h2>
+    <p>Premium learning experience with care, discipline and technology</p>
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <div class="icon">🧑‍🏫</div>
+      <h3>Personal Attention</h3>
+      <p>Every student receives individual guidance to improve confidence and academic performance.</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">📊</div>
+      <h3>Progress Tracking</h3>
+      <p>Regular tests and performance monitoring help students stay consistent and improve steadily.</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">💡</div>
+      <h3>Digital Board Teaching</h3>
+      <p>Modern digital learning facilities make difficult concepts easier to understand.</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">📚</div>
+      <h3>Doubt Solving</h3>
+      <p>Dedicated doubt-solving sessions ensure students understand every topic clearly.</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">🎯</div>
+      <h3>Regular Tests</h3>
+      <p>Weekly tests and practice papers prepare students for exams with confidence.</p>
+    </div>
+
+    <div class="feature">
+      <div class="icon">🌟</div>
+      <h3>Positive Atmosphere</h3>
+      <p>A disciplined, motivating and student-friendly environment for better learning.</p>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="title">
+    <h2>What Parents & Students Say</h2>
+    <p>Trusted by students and parents in Nashik</p>
+  </div>
+
+  <div class="reviews">
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>
+        “Personal attention is given to every student. Regular tests, doubt-solving sessions
+        and progress tracking help students improve steadily.”
+      </p>
+      <h4>- Parent Review</h4>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>
+        “Amazing teaching. Teachers are encouraging and provide personalized attention.
+        Digital facility is available.”
+      </p>
+      <h4>- Student Review</h4>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>
+        “The teaching is clear and well-paced. Regular practice questions helped improve confidence.”
+      </p>
+      <h4>- Google Review</h4>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <h2>Admissions Open Now</h2>
+  <p>Give your child a better learning environment with expert guidance and personal attention.</p>
+  <a href="tel:08007001178" class="btn">Call 080070 01178</a>
+</div>
+
+<section id="contact">
+  <div class="title">
+    <h2>Contact & Location</h2>
+    <p>Visit Abhyaas Coaching Classes at Tapovan Road, Dwarka, Nashik</p>
+  </div>
+
+  <div class="contact">
+    <div class="contact-box">
+      <h3>Get in Touch</h3>
+      <p><b>Address:</b> Abhyaas Coaching Classes, Vihar Vivanta Apt, Tapovan Rd, Dwarka, Nashik, Maharashtra 422011</p>
+      <p><b>Phone:</b> 080070 01178</p>
+      <p><b>Rating:</b> 5.0 Google Rating</p>
+      <p><b>Timing:</b> Open till 9 PM</p>
+
+      <a href="https://wa.me/918007001178?text=Hello%20Abhyaas%20Coaching%20Classes,%20I%20want%20to%20know%20about%20fees%20and%20admission."
+         class="btn btn-gold">WhatsApp Enquiry</a>
+    </div>
+
+    <div class="contact-box">
+      <iframe src="https://www.google.com/maps?q=Abhyaas%20Coaching%20Classes%20Tapovan%20Road%20Dwarka%20Nashik&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Abhyaas Coaching Classes. All Rights Reserved.</p>
+  <p>Premium website designed for online presence and student enquiries.</p>
+</footer>
+
+<a class="whatsapp"
+   href="https://wa.me/918007001178?text=Hello%20Abhyaas%20Coaching%20Classes,%20I%20want%20to%20enquire%20about%20admission.">
+   ☎
+</a>
+
+</body>
+</html>
